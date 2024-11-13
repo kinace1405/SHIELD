@@ -1,0 +1,231 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-purple: #7C3AED;
+  --primary-green: #16A34A;
+  --primary-silver: #C0C0C0;
+}
+
+html,
+body {
+  @apply antialiased;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-900;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-700 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-600;
+}
+
+/* Animations */
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px var(--primary-purple),
+                0 0 10px var(--primary-purple);
+  }
+  100% {
+    box-shadow: 0 0 10px var(--primary-purple),
+                0 0 20px var(--primary-purple);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Custom Classes */
+.animate-glow {
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Glass Effect */
+.glass-effect {
+  @apply bg-opacity-20 backdrop-blur-lg border border-gray-700/50;
+}
+
+/* Gradient Backgrounds */
+.bg-gradient-custom {
+  @apply bg-gradient-to-b from-gray-900 via-custom-purple to-custom-green;
+}
+
+.bg-gradient-card {
+  @apply bg-gradient-to-br from-gray-800/50 to-gray-900/50;
+}
+
+/* Typography */
+.heading-1 {
+  @apply text-4xl font-bold text-white;
+}
+
+.heading-2 {
+  @apply text-3xl font-bold text-white;
+}
+
+.heading-3 {
+  @apply text-2xl font-bold text-white;
+}
+
+.subtitle {
+  @apply text-gray-400;
+}
+
+/* Button Styles */
+.btn-primary {
+  @apply bg-custom-purple text-white rounded-lg px-4 py-2 
+         hover:bg-opacity-80 transition-colors 
+         disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.btn-secondary {
+  @apply bg-gray-700 text-white rounded-lg px-4 py-2 
+         hover:bg-opacity-80 transition-colors 
+         disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.btn-success {
+  @apply bg-custom-green text-white rounded-lg px-4 py-2 
+         hover:bg-opacity-80 transition-colors 
+         disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+/* Card Styles */
+.card {
+  @apply bg-gray-800/50 border border-gray-700 rounded-lg p-6;
+}
+
+/* Input Styles */
+.input {
+  @apply bg-gray-700 text-white rounded-lg px-4 py-2 
+         focus:outline-none focus:ring-2 focus:ring-custom-purple
+         border border-gray-600;
+}
+
+/* Badge Styles */
+.badge {
+  @apply px-2.5 py-0.5 rounded-full text-xs font-medium;
+}
+
+.badge-purple {
+  @apply bg-custom-purple text-white;
+}
+
+.badge-green {
+  @apply bg-custom-green text-white;
+}
+
+.badge-gray {
+  @apply bg-gray-700 text-white;
+}
+
+/* Loading States */
+.loading-pulse {
+  @apply animate-pulse bg-gray-700 rounded;
+}
+
+/* Transitions */
+.transition-all-custom {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+  .heading-1 {
+    @apply text-3xl;
+  }
+
+  .heading-2 {
+    @apply text-2xl;
+  }
+
+  .heading-3 {
+    @apply text-xl;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .no-print {
+    display: none;
+  }
+}
+
+/* Focus Styles for Accessibility */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-custom-purple focus:ring-offset-2 focus:ring-offset-gray-900;
+}
+
+/* Container Layouts */
+.content-container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+/* Status Indicators */
+.status-dot {
+  @apply w-2 h-2 rounded-full;
+}
+
+.status-active {
+  @apply bg-custom-green;
+}
+
+.status-pending {
+  @apply bg-yellow-500;
+}
+
+.status-inactive {
+  @apply bg-red-500;
+}
+
+/* Overlay Styles */
+.overlay {
+  @apply fixed inset-0 bg-black/80 backdrop-blur-sm;
+}
+
+/* Z-index Layers */
+.z-modal {
+  @apply z-50;
+}
+
+.z-dropdown {
+  @apply z-40;
+}
+
+.z-header {
+  @apply z-30;
+}
+
+/* Document States */
+.document-processing {
+  @apply animate-pulse;
+}
+
+.document-error {
+  @apply border-red-500;
+}
+
+.document-success {
+  @apply border-custom-green;
+}
